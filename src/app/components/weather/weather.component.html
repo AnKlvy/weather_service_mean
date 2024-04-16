@@ -1,1 +1,43 @@
-<p>weather works!</p>
+<div class="input-item">
+    <label for="location">Направление</label>
+    <select
+      name="location" 
+      id="location">
+        <option value="">Please choose an option</option>
+        <option value="Almaty">Almaty</option>
+        <option value="Astana">Astana</option>
+        <option value="Moscow">Moscow</option>
+        <option value="Piter">Piter</option>
+        <option value="Paris">Paris</option>
+        <option value="Rome">Rome</option>
+    </select>
+</div>
+
+<!-- <mat-form-field>
+    <mat-label>City</mat-label>
+    <mat-select>
+        <mat-option [value]="Almaty">Almaty</mat-option>
+        <mat-option [value]="Astana">Astana</mat-option>
+        <mat-option [value]="Moscow">Moscow</mat-option>
+        <mat-option [value]="Piter">Piter</mat-option>
+        <mat-option [value]="Paris">Paris</mat-option>
+        <mat-option [value]="Rome">Rome</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+<!-- weather.component.html -->
+<div *ngFor="let data of weatherData; let i = index">
+    <p>{{ data.weather.description }}</p>
+    <p>Latitude: {{ data.weather.latitude }}, Longitude: {{ data.weather.longitude }}</p>
+    <p>Note: {{ data.note }}</p>
+    <p>Temperature: {{ getTemperature(data.weather.hourly.temperature_2m) }} °C</p>
+    <input [(ngModel)]="data.note" placeholder="Update Note" />
+    <button (click)="updateNote(i, data.note)">Update Note</button>
+    <button (click)="deleteWeather(i)">Delete Weather</button>
+  </div>
+  
+  <h2>Add New Weather</h2>
+  <input [(ngModel)]="newLatitude" placeholder="Latitude" />
+  <input [(ngModel)]="newLongitude" placeholder="Longitude" />
+  <input [(ngModel)]="newNote" placeholder="Note" />
+  <button (click)="addWeather()">Add Weather</button>

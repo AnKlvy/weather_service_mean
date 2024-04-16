@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './components/weather/weather.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { WeatherComponent } from './components/weather/weather.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppRoutingModule, //Добавление AppRoutingModule для роутов
+    FormsModule,
+    ReactiveFormsModule, // Добавление FormsModule в раздел imports
     HttpClientModule, // Добавление HttpClientModule в список импортируемых модулей
   ],
   providers: [],
