@@ -24,7 +24,11 @@
         <mat-option [value]="Rome">Rome</mat-option>
     </mat-select>
   </mat-form-field> -->
-
+  <h2>Add New Weather</h2>
+  <input [(ngModel)]="newLatitude" placeholder="Latitude" />
+  <input [(ngModel)]="newLongitude" placeholder="Longitude" />
+  <input [(ngModel)]="newNote" placeholder="Note" />
+  <button (click)="addWeather()">Add Weather</button>
 <!-- weather.component.html -->
 <div *ngFor="let data of weatherData; let i = index">
     <p>{{ data.weather.description }}</p>
@@ -35,9 +39,3 @@
     <button (click)="updateNote(i, data.note)">Update Note</button>
     <button (click)="deleteWeather(i)">Delete Weather</button>
   </div>
-  
-  <h2>Add New Weather</h2>
-  <input [(ngModel)]="newLatitude" placeholder="Latitude" />
-  <input [(ngModel)]="newLongitude" placeholder="Longitude" />
-  <input [(ngModel)]="newNote" placeholder="Note" />
-  <button (click)="addWeather()">Add Weather</button>
